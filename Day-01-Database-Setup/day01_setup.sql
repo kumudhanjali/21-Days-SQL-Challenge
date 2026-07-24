@@ -25,10 +25,14 @@ CREATE TABLE IF NOT EXISTS events (
     event_date DATE NOT NULL,
     location VARCHAR(100),
     is_active BOOLEAN DEFAULT TRUE,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    organizer_id INT,
+    FOREIGN KEY (organizer_id) REFERENCES members(member_id)
 );
 
 -- 5. Verification (Run this to see your empty tables)
 SHOW TABLES;
 DESCRIBE members;
 DESCRIBE events;
+SELECT * FROM members;
+SELECT * FROM events;
