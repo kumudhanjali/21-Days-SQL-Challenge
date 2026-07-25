@@ -13,7 +13,7 @@ VALUES
 ('Aarav', 'Patel', 'aarav@vertex.com', 'CEO'), 
 ('Meera', 'Nair', 'meera@vertex.com', 'Chief Operating Officer'), 
 ('Kabir', 'Joshi', 'kabir@vertex.com', 'Chief Technology Officer'), 
-('Riya', 'Kapoor', 'riya@vertex.com', 'Chief Marketing Officer')
+('Riya', 'Kapoor', 'riya@vertex.com', 'Chief Marketing Officer');
 
 -- 3. Insert some upcoming community events.
 -- Dates must follow the YYYY-MM-DD format inside single quotes.
