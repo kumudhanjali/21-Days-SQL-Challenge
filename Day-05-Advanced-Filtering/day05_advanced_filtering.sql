@@ -7,29 +7,28 @@ USE synexus_db;
 
 -- ==========================================
 -- STEP 2: Pattern Matching (LIKE)
--- Write a query to find all members whose first name starts with the letter 'A'.
--- Hint: Use the '%' wildcard symbol.
 -- ==========================================
 
 -- [Write your query below this line]
-
-
+SELECT first_name, last_name, email
+FROM members
+WHERE first_name LIKE 'A%';
 
 -- ==========================================
 -- STEP 3: Checking Lists (IN)
--- Write a query to find all members whose designation is EITHER:
--- 'Founder', 'Chief Strategic Officer', or 'Chief Coordination Officer'.
--- Do NOT use the 'OR' keyword. Use the 'IN' operator instead.
 -- ==========================================
-
--- [Write your query below this line]
-
-
+SELECT first_name, last_name, designation
+FROM members
+WHERE designation IN (
+    'CEO',
+    'Chief Operating Officer',
+    'Chief Technology Officer'
+);
 
 -- ==========================================
 -- STEP 4: Filtering Ranges (BETWEEN)
--- Write a query to find all events scheduled to happen between 
--- '2026-09-01' and '2026-12-31'.
 -- ==========================================
 
--- [Write your query below this line]
+SELECT event_name, event_date
+FROM events
+WHERE event_date BETWEEN '2026-09-01' AND '2026-12-31';
