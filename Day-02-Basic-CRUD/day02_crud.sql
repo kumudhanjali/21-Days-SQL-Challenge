@@ -37,3 +37,5 @@ SELECT * FROM events;
 -- Let's just get a clean list of names and their roles.
 SELECT first_name, last_name, designation 
 FROM members;
+SELECT event_name, location
+FROM events;
