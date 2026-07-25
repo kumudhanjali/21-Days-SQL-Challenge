@@ -30,7 +30,12 @@ SET designation = 'Lead Developer'
 WHERE first_name = 'Alex' AND last_name = 'Turner';
 
 -- Let's verify the change!
-SELECT * FROM members WHERE first_name = 'Alex';
+SELECT first_name, designation
+FROM members
+WHERE first_name = 'Alex';
+SELECT *
+FROM members
+WHERE last_name = 'Turner';
 
 -- ==========================================
 -- 3. DELETING DATA (The 'D' in CRUD)
@@ -38,6 +43,8 @@ SELECT * FROM members WHERE first_name = 'Alex';
 -- ==========================================
 DELETE FROM events
 WHERE event_name = 'Temporary Test Event';
+SELECT *
+FROM events;
 
 -- Let's verify it is gone! (This should return an empty grid)
 SELECT * FROM events WHERE event_name = 'Temporary Test Event';
