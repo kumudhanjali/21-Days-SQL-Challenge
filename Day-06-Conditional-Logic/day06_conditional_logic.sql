@@ -13,24 +13,23 @@ INSERT INTO events (event_name, event_date)
 VALUES ('Secret Pop-up Hackathon', '2026-11-01');
 -- Notice we didn't mention 'location' at all. SQL will insert NULL automatically.
 
-
 -- ==========================================
 -- STEP 2: Handling NULLs (IS NULL)
 -- Write a query to find all events where the location is NULL.
 -- ==========================================
 
--- [Write your query below this line]
-
-
+SELECT *
+FROM events
+WHERE location IS NULL;
 
 -- ==========================================
 -- STEP 3: Complete Records (IS NOT NULL)
 -- Write a query to find all members who DO have a designation assigned.
 -- ==========================================
 
--- [Write your query below this line]
-
-
+SELECT *
+FROM members
+WHERE designation IS NOT NULL;
 
 -- ==========================================
 -- STEP 4: The CASE Statement (IF/ELSE Logic)
@@ -41,4 +40,13 @@ VALUES ('Secret Pop-up Hackathon', '2026-11-01');
 -- Don't forget to END your CASE statement!
 -- ==========================================
 
--- [Write your query below this line]
+SELECT
+    first_name,
+    designation,
+    CASE
+        WHEN designation = 'Founder'
+             OR designation = 'Chief Strategic Officer'
+        THEN 'Core Leadership'
+        ELSE 'General Member'
+    END AS role_category
+FROM members;
