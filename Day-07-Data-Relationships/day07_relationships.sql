@@ -13,6 +13,15 @@ USE synexus_db;
 -- ==========================================
 
 -- [Write your query below this line]
+CREATE TABLE attendance (
+    scan_id INT AUTO_INCREMENT PRIMARY KEY,
+    member_id INT NOT NULL,
+    event_id INT NOT NULL,
+    scanned_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+
+    FOREIGN KEY (member_id) REFERENCES members(member_id),
+    FOREIGN KEY (event_id) REFERENCES events(event_id)
+);
 
 
 
@@ -27,6 +36,8 @@ SELECT event_id, event_name FROM events;
 -- ==========================================
 
 -- [Write your query below this line]
+INSERT INTO attendance (member_id, event_id)
+VALUES (1, 1);
 
 
 
@@ -37,3 +48,5 @@ SELECT event_id, event_name FROM events;
 -- ==========================================
 
 -- [Write your intentional error query below this line]
+INSERT INTO attendance (member_id, event_id)
+VALUES (9999, 1);
