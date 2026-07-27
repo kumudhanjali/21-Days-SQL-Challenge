@@ -13,9 +13,13 @@ USE synexus_db;
 -- ==========================================
 
 -- [Write your query below this line]
-
-
-
+SELECT
+    members.first_name,
+    members.last_name,
+    attendance.scanned_at
+FROM members
+INNER JOIN attendance
+ON members.member_id = attendance.member_id;
 -- ==========================================
 -- STEP 3: Table Aliasing
 -- Rewrite the exact same query above, but give your tables aliases.
@@ -24,9 +28,13 @@ USE synexus_db;
 -- ==========================================
 
 -- [Write your query below this line]
-
-
-
+SELECT
+    m.first_name,
+    m.last_name,
+    a.scanned_at
+FROM members AS m
+INNER JOIN attendance AS a
+ON m.member_id = a.member_id;
 -- ==========================================
 -- STEP 4: The Three-Table Join (The Master Report)
 -- We need the Event Name! 
@@ -36,3 +44,13 @@ USE synexus_db;
 -- ==========================================
 
 -- [Write your query below this line]
+SELECT
+    m.first_name,
+    m.last_name,
+    e.event_name,
+    a.scanned_at
+FROM members AS m
+INNER JOIN attendance AS a
+ON m.member_id = a.member_id
+INNER JOIN events AS e
+ON a.event_id = e.event_id;
