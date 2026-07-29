@@ -22,9 +22,13 @@ SELECT * FROM attendance;
 -- ==========================================
 
 -- [Write your query below this line]
-
-
-
+SELECT
+    m.first_name,
+    m.last_name,
+    a.scanned_at
+FROM members m
+LEFT JOIN attendance a
+ON m.member_id = a.member_id;
 -- ==========================================
 -- STEP 3: Finding Inactive Members (The Interview Trick)
 -- Copy your LEFT JOIN query from Step 2.
@@ -33,9 +37,14 @@ SELECT * FROM attendance;
 -- ==========================================
 
 -- [Write your query below this line]
-
-
-
+SELECT
+    m.first_name,
+    m.last_name,
+    a.scanned_at
+FROM members m
+LEFT JOIN attendance a
+ON m.member_id = a.member_id
+WHERE a.scan_id IS NULL;
 -- ==========================================
 -- STEP 4: The RIGHT JOIN
 -- Start FROM attendance (Left table) and RIGHT JOIN to events (Right table).
@@ -44,3 +53,9 @@ SELECT * FROM attendance;
 -- ==========================================
 
 -- [Write your query below this line]
+SELECT
+    e.event_name,
+    a.scanned_at
+FROM attendance a
+RIGHT JOIN events e
+ON a.event_id = e.event_id;
