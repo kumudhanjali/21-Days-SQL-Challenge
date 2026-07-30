@@ -31,9 +31,8 @@ VALUES
 -- ==========================================
 
 -- [Write your query below this line]
-
-
-
+SELECT COUNT(*) AS total_members
+FROM members;
 -- ==========================================
 -- STEP 3: Finding Extremes (MIN & MAX)
 -- Write a query to find the MIN(budget) and MAX(budget) from the 'projects' table.
@@ -41,9 +40,10 @@ VALUES
 -- ==========================================
 
 -- [Write your query below this line]
-
-
-
+SELECT
+    MIN(budget) AS lowest_budget,
+    MAX(budget) AS highest_budget
+FROM projects;
 -- ==========================================
 -- STEP 4: Totals and Averages (SUM & AVG)
 -- Write a query to find the SUM of all budgets, and the AVG team_size.
@@ -51,7 +51,10 @@ VALUES
 -- ==========================================
 
 -- [Write your query below this line]
-
+SELECT
+    SUM(budget) AS total_budget,
+    AVG(team_size) AS average_team_size
+FROM projects;
 
 
 -- ==========================================
@@ -60,3 +63,8 @@ VALUES
 -- ==========================================
 
 -- [Write your query below this line]
+SELECT
+    COUNT(*) AS total_projects,
+    SUM(budget) AS total_budget,
+    AVG(team_size) AS average_team_size
+FROM projects;
