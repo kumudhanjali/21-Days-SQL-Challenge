@@ -13,9 +13,9 @@ USE synexus_db;
 -- ==========================================
 
 -- [Write your query below this line]
-
-
-
+SELECT designation, COUNT(*) AS total_members
+FROM members
+GROUP BY designation;
 -- ==========================================
 -- STEP 3: Grouping Across Tables (JOIN + GROUP BY)
 -- Write a query to find the total number of attendees for each event.
@@ -25,9 +25,12 @@ USE synexus_db;
 -- ==========================================
 
 -- [Write your query below this line]
-
-
-
+SELECT e.event_name,
+       COUNT(a.member_id) AS total_attendees
+FROM events e
+INNER JOIN attendance a
+ON e.event_id = a.event_id
+GROUP BY e.event_name;
 -- ==========================================
 -- STEP 4: Filtering Groups (HAVING)
 -- Copy your exact query from Step 3.
@@ -36,3 +39,10 @@ USE synexus_db;
 -- ==========================================
 
 -- [Write your query below this line]
+SELECT e.event_name,
+       COUNT(a.member_id) AS total_attendees
+FROM events e
+INNER JOIN attendance a
+ON e.event_id = a.event_id
+GROUP BY e.event_name
+HAVING COUNT(a.member_id) > 1;
