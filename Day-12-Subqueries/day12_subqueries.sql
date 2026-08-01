@@ -15,9 +15,12 @@ USE synexus_db;
 -- ==========================================
 
 -- [Write your query below this line]
-
-
-
+SELECT project_name, budget
+FROM projects
+WHERE budget > (
+    SELECT AVG(budget)
+    FROM projects
+);
 -- ==========================================
 -- STEP 3: The List Subquery (IN)
 -- Question: Who are the members that have attended at least one event?
@@ -28,3 +31,9 @@ USE synexus_db;
 -- ==========================================
 
 -- [Write your query below this line]
+SELECT first_name, last_name
+FROM members
+WHERE member_id IN (
+    SELECT member_id
+    FROM attendance
+);
