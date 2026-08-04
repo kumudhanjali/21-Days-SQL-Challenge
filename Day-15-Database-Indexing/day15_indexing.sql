@@ -16,16 +16,16 @@ USE synexus_db;
 EXPLAIN
 SELECT *
 FROM members
-WHERE email = 'alex.test@synexus.com';
+WHERE email = 'test@email.com';
 -- ==========================================
 -- STEP 3: Create the Index
 -- Write a query to create an INDEX named 'idx_members_email' 
 -- on the 'email' column of the 'members' table.
 -- ==========================================
-
--- [Write your query below this line]
 CREATE INDEX idx_members_email
 ON members(email);
+-- [Write your query below this line]
+
 -- ==========================================
 -- STEP 4: Verify the Optimization
 -- Copy and paste your exact EXPLAIN query from Step 2 below.
@@ -36,4 +36,4 @@ ON members(email);
 EXPLAIN
 SELECT *
 FROM members
-WHERE email = 'alex.test@synexus.com';
+WHERE email = 'test@email.com';
