@@ -15,9 +15,11 @@ USE synexus_db;
 -- ==========================================
 
 -- [Write your query below this line]
-
-
-
+SELECT
+    ROW_NUMBER() OVER (ORDER BY budget DESC) AS project_rank_id,
+    project_name,
+    budget
+FROM projects;
 -- ==========================================
 -- STEP 3: Cumulative Analytics (Running Total)
 -- Write a query to select project_name and budget.
@@ -26,3 +28,8 @@ USE synexus_db;
 -- ==========================================
 
 -- [Write your query below this line]
+SELECT
+    project_name,
+    budget,
+    SUM(budget) OVER (ORDER BY project_id) AS running_total_budget
+FROM projects;
