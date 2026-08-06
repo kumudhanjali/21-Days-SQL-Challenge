@@ -33,9 +33,13 @@ VALUES
 -- ==========================================
 
 -- [Write your query below this line]
+SELECT first_name, last_name, email
+FROM members
 
+UNION
 
-
+SELECT first_name, last_name, email
+FROM guest_speakers;
 -- ==========================================
 -- STEP 3: Keeping Duplicates (UNION ALL)
 -- Copy your exact query from Step 2, but change the keyword to UNION ALL.
@@ -43,9 +47,13 @@ VALUES
 -- ==========================================
 
 -- [Write your query below this line]
+SELECT first_name, last_name, email
+FROM members
 
+UNION ALL
 
-
+SELECT first_name, last_name, email
+FROM guest_speakers;
 -- ==========================================
 -- STEP 4: Labeling the Source
 -- Rewrite your UNION ALL query. 
@@ -54,3 +62,18 @@ VALUES
 -- ==========================================
 
 -- [Write your query below this line]
+SELECT
+    first_name,
+    last_name,
+    email,
+    'Member' AS contact_type
+FROM members
+
+UNION ALL
+
+SELECT
+    first_name,
+    last_name,
+    email,
+    'Guest Speaker' AS contact_type
+FROM guest_speakers;
