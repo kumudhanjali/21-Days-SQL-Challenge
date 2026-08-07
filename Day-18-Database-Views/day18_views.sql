@@ -12,9 +12,23 @@ USE synexus_db;
 -- ==========================================
 
 -- [Write your query below this line]
+CREATE VIEW vw_master_contact_list AS
 
+SELECT
+    first_name,
+    last_name,
+    email,
+    'Member' AS contact_type
+FROM members
 
+UNION ALL
 
+SELECT
+    first_name,
+    last_name,
+    email,
+    'Guest Speaker' AS contact_type
+FROM guest_speakers;
 -- ==========================================
 -- STEP 3: Querying the View
 -- Now, retrieve the data just like a normal table!
@@ -22,9 +36,8 @@ USE synexus_db;
 -- ==========================================
 
 -- [Write your query below this line]
-
-
-
+SELECT *
+FROM vw_master_contact_list;
 -- ==========================================
 -- STEP 4: Filtering the View
 -- Write a query targeting your view, but add a WHERE clause 
@@ -32,3 +45,6 @@ USE synexus_db;
 -- ==========================================
 
 -- [Write your query below this line]
+SELECT *
+FROM vw_master_contact_list
+WHERE contact_type = 'Guest Speaker';
